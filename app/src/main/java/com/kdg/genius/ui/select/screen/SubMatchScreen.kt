@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kdg.genius.Routes
 import com.kdg.genius.ui.select.intent.SelectEvent
 import com.kdg.genius.ui.select.intent.SelectScreenState
 import com.kdg.genius.ui.theme.DeathMatchBlue
@@ -47,7 +48,7 @@ fun SubMatchScreen(sendEvent: (SelectEvent) -> Unit) {
                     title = "같은 숫자 찾기",
                     subtitle = "1:1 MATCH",
                     gradientColors = listOf(Color(0xFF2C3E50), DeathMatchBlue),
-                    onClick = { sendEvent.invoke(SelectEvent.SetScreenState(SelectScreenState.MainMatchScreen)) }
+                    onClick = { sendEvent.invoke(SelectEvent.MoveScreen(Routes.SameNumber)) }
                 )
             }
             item {
@@ -55,7 +56,7 @@ fun SubMatchScreen(sendEvent: (SelectEvent) -> Unit) {
                     title = "흑과백",
                     subtitle = "1:1 MATCH",
                     gradientColors = listOf(Color(0xFF2C3E50), DeathMatchBlue),
-                    onClick = { sendEvent.invoke(SelectEvent.SetScreenState(SelectScreenState.MainMatchScreen)) }
+                    onClick = { sendEvent.invoke(SelectEvent.MoveScreen(Routes.Bnw)) }
                 )
             }
             item {

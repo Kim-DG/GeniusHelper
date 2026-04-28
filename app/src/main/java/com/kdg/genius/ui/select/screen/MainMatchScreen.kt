@@ -46,7 +46,7 @@ fun MainMatchScreen(sendEvent: (SelectEvent) -> Unit) {
                     title = "사기경마",
                     subtitle = "MAIN MATCH",
                     gradientColors = listOf(GarnetRed, GarnetBright),
-                    onClick = { sendEvent.invoke(SelectEvent.SetScreenState(SelectScreenState.MainMatchScreen)) }
+                    onClick = { sendEvent.invoke(SelectEvent.MoveScreen(Routes.Racing))  }
                 )
             }
             item {
@@ -54,7 +54,7 @@ fun MainMatchScreen(sendEvent: (SelectEvent) -> Unit) {
                     title = "먹이사슬",
                     subtitle = "MAIN MATCH",
                     gradientColors = listOf(GarnetRed, GarnetBright),
-                    onClick = { sendEvent.invoke(SelectEvent.SetScreenState(SelectScreenState.MainMatchScreen)) }
+                    onClick = { }
                 )
             }
             item {
