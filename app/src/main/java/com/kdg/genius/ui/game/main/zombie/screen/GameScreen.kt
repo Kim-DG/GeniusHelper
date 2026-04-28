@@ -27,16 +27,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kdg.genius.Routes
 import com.kdg.genius.ui.game.main.zombie.data.ParticipantState
 import com.kdg.genius.ui.game.main.zombie.data.ZombieParticipant
 import com.kdg.genius.ui.game.main.zombie.intent.ZombieDialogState
 import com.kdg.genius.ui.game.main.zombie.intent.ZombieEvent
 import com.kdg.genius.ui.game.main.zombie.intent.ZombieState
+import com.kdg.genius.ui.game.sub.same_number.intent.SameNumberEvent
 import com.kdg.genius.ui.theme.DeathMatchBlue
 import com.kdg.genius.ui.theme.GeniusDarkBlue
 import com.kdg.genius.ui.theme.GeniusGold
 import com.kdg.genius.ui.theme.GeniusTheme
 import com.kdg.genius.ui.widget.GeniusButton
+import com.kdg.genius.ui.widget.Topbar
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -51,6 +54,11 @@ fun GameScreen(state: ZombieState, sendEvent: (ZombieEvent) -> Unit) {
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
+        item {
+            Topbar(onClick = {
+                sendEvent.invoke(ZombieEvent.SetDialogState(ZombieDialogState.Back))
+            })
+        }
         item {
             Row(
                 modifier = Modifier.fillMaxWidth(),

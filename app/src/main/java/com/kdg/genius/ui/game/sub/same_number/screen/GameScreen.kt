@@ -32,6 +32,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kdg.genius.Routes
+import com.kdg.genius.ui.game.main.racing.intent.RacingEvent
 import com.kdg.genius.ui.game.main.zombie.data.ParticipantState
 import com.kdg.genius.ui.game.main.zombie.data.ZombieParticipant
 import com.kdg.genius.ui.game.sub.same_number.intent.SameNumberEvent
@@ -41,6 +43,7 @@ import com.kdg.genius.ui.theme.GeniusDarkBlue
 import com.kdg.genius.ui.theme.GeniusGold
 import com.kdg.genius.ui.theme.GeniusTheme
 import com.kdg.genius.ui.widget.GeniusButton
+import com.kdg.genius.ui.widget.Topbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -65,6 +68,9 @@ fun GameScreen(state: SameNumberState, sendEvent: (SameNumberEvent) -> Unit) {
             Alignment.CenterVertically
         )
     ) {
+        Topbar(onClick = {
+            sendEvent.invoke(SameNumberEvent.MoveScreen(Routes.Select))
+        })
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             for (i in 0..3) {
                 SameNumberBlock(

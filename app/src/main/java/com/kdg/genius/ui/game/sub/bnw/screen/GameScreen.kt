@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kdg.genius.Routes
 import com.kdg.genius.ui.game.main.zombie.data.ParticipantState
 import com.kdg.genius.ui.game.main.zombie.data.ZombieParticipant
 import com.kdg.genius.ui.game.sub.bnw.intent.BnwEvent
@@ -44,6 +45,7 @@ import com.kdg.genius.ui.theme.GeniusDarkBlue
 import com.kdg.genius.ui.theme.GeniusGold
 import com.kdg.genius.ui.theme.GeniusTheme
 import com.kdg.genius.ui.widget.GeniusButton
+import com.kdg.genius.ui.widget.Topbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -60,6 +62,9 @@ fun GameScreen(state: BnwState, sendEvent: (BnwEvent) -> Unit) {
             Alignment.CenterVertically
         )
     ) {
+        Topbar(onClick = {
+            sendEvent.invoke(BnwEvent.MoveScreen(Routes.Select))
+        })
         Row(
             modifier = Modifier
                 .padding(top = 30.dp)

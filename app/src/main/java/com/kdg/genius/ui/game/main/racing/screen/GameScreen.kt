@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import com.kdg.genius.R
+import com.kdg.genius.Routes
 import com.kdg.genius.ui.game.main.racing.intent.RacingEvent
 import com.kdg.genius.ui.select.intent.SelectEvent
 import com.kdg.genius.ui.select.intent.SelectScreenState
@@ -90,7 +91,7 @@ fun GameScreen(sendEvent: (RacingEvent) -> Unit) {
             .padding(36.dp),
     ) {
         Topbar(onClick = {
-
+            sendEvent.invoke(RacingEvent.MoveScreen(Routes.Select))
         })
         LazyColumn(
             modifier = Modifier

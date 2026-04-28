@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.kdg.genius.LocalNavController
 import com.kdg.genius.Routes
+import com.kdg.genius.ui.game.main.zombie.dialog.BackDialog
 import com.kdg.genius.ui.game.main.zombie.dialog.OriginalZombieDialog
 import com.kdg.genius.ui.game.main.zombie.dialog.TouchDialog
 import com.kdg.genius.ui.game.main.zombie.dialog.UseCureDialog
@@ -16,6 +17,7 @@ import com.kdg.genius.ui.game.main.zombie.intent.ZombieScreenState
 import com.kdg.genius.ui.game.main.zombie.intent.ZombieSideEffect
 import com.kdg.genius.ui.game.main.zombie.screen.GameScreen
 import com.kdg.genius.ui.game.main.zombie.screen.InitScreen
+import com.kdg.genius.ui.select.intent.SelectDialogState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
 fun NavGraphBuilder.addZombie() {
@@ -65,6 +67,12 @@ fun NavGraphBuilder.addZombie() {
 
             ZombieDialogState.UseCure -> {
                 UseCureDialog(state) {
+                    viewModel.sendEvent(it)
+                }
+            }
+
+            ZombieDialogState.Back -> {
+                BackDialog {
                     viewModel.sendEvent(it)
                 }
             }
